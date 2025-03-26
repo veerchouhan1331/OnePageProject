@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stopwatch</title>
+    <style>
+      
+        .container{
+            height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+        }
+        #box{
+         background-color: blueviolet;
+        height: 50px;
+        width: 180px;
+        font-size: 40px;
+         padding: 20px;
+        
+
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <div id="box">
+        12:12:12
+    </div>
+</div>
+</body>
+<script>
+    function updateClock(){
+  const time =  document.getElementById("box");
+
+    const date = new Date();
+    var hours =date.getHours();
+    var minutes =date.getMinutes();
+    var seconds =date.getSeconds();
+
+    hours = hours < 10 ? '0' + hours : hours;
+    minutes = minutes < 10 ? '0' + minutes : minutes;
+    seconds = seconds < 10 ? '0' + seconds : seconds;
+
+    
+    time.textContent  = `${hours}:${minutes}:${seconds}`
+    }
+
+setInterval(updateClock,1000);
+
+updateClock();
+
+</script>
+</html>
